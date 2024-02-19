@@ -96,10 +96,10 @@ private:
     float x = -(joy_msg->axes[4]);
     float y = (joy_msg->axes[5]);
 
-    publisher_->publish(generate_shirasu_target(0x100, x * sqrt(1 / 2) + y * sqrt(1 / 2)));
-    publisher_->publish(generate_shirasu_target(0x200, -(x * sqrt(1 / 2)) + y * sqrt(1 / 2)));
-    publisher_->publish(generate_shirasu_target(0x300, -(x * sqrt(1 / 2) + y * sqrt(1 / 2))));
-    publisher_->publish(generate_shirasu_target(0x400, x * sqrt(1 / 2) + -(y * sqrt(1 / 2))));
+    publisher_->publish(generate_shirasu_target(0x100, x + y));
+    publisher_->publish(generate_shirasu_target(0x200, -x + y));
+    publisher_->publish(generate_shirasu_target(0x300, -(x + y)));
+    publisher_->publish(generate_shirasu_target(0x400, x - y ));
   }
 
   void timer_target_callback()
